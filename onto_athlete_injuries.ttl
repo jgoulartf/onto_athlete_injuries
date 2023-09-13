@@ -1,0 +1,108 @@
+@prefix : <http://example.com/onto-athletes-injuries#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://example.com/onto-athletes-injuries> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Exercicio rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Exercicio"@en.
+:Leso rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Les�o"@en.
+:Atleta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Atleta"@en.
+:Preveno rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Preven��o"@en.
+:Historico_lesoes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Historico_lesoes"@en.
+:Mdico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "M�dico"@en.
+:Educador_fisico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Educador_fisico"@en.
+:Tratamento rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Tratamento"@en.
+:Peso rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Peso"@en.
+:Caracteristicas_fisicas rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Caracteristicas_fisicas"@en.
+:Altura rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Altura"@en.
+:faz rdf:type owl:ObjectProperty;
+    rdfs:domain :Atleta;
+    rdfs:range :Exercicio;
+    rdfs:label "faz"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:sofre rdf:type owl:ObjectProperty;
+    rdfs:domain :Atleta;
+    rdfs:range :Leso;
+    rdfs:label "sofre"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:registra rdf:type owl:ObjectProperty;
+    rdfs:domain :Historico_lesoes;
+    rdfs:range :Leso;
+    rdfs:label "registra"@en;
+    rdf:type gufo:ComparativeRelationshipType.
+:trata rdf:type owl:ObjectProperty;
+    rdfs:domain :Atleta;
+    rdfs:range :Educador_fisico;
+    rdfs:label "trata"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:prescreve_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :Educador_fisico;
+    rdfs:range :Preveno;
+    rdfs:label "prescreve"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:avalia rdf:type owl:ObjectProperty;
+    rdfs:domain :Mdico;
+    rdfs:range :Atleta;
+    rdfs:label "avalia"@en.
+:tem rdf:type owl:ObjectProperty;
+    rdfs:domain :Historico_lesoes;
+    rdfs:range :Atleta;
+    rdfs:label "tem"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:prescreve rdf:type owl:ObjectProperty;
+    rdfs:domain :Tratamento;
+    rdfs:range :Mdico;
+    rdfs:label "prescreve"@en.
+:caracteristicasFisicasHasPeso rdf:type owl:ObjectProperty;
+    rdfs:domain :Caracteristicas_fisicas;
+    rdfs:range :Peso.
+:alturaHasCaracteristicasFisicas rdf:type owl:ObjectProperty;
+    rdfs:domain :Altura;
+    rdfs:range :Caracteristicas_fisicas.
+:Leso rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :sofre ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Atleta
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :registra ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Historico_lesoes
+].
+:Caracteristicas_fisicas rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :Atleta
+].
+:Atleta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Caracteristicas_fisicas
+].
