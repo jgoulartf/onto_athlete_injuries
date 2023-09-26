@@ -1,720 +1,211 @@
-@prefix : <http://example.com#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix gufo: <http://purl.org/nemo/gufo#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://example.com#> .
-
-<http://example.com> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://example.com#avalia
-:avalia rdf:type owl:ObjectProperty ;
-        rdfs:domain :Mdico ;
-        rdfs:range :Atleta .
-
-
-###  http://example.com#lesoHasLesaoJoelho
-:lesoHasLesaoJoelho rdf:type owl:ObjectProperty ;
-                    rdfs:domain :Leso ;
-                    rdfs:range :lesao_joelho .
-
-
-###  http://example.com#lesoHasLesaoMuscular
-:lesoHasLesaoMuscular rdf:type owl:ObjectProperty ;
-                      rdfs:domain :Leso ;
-                      rdfs:range :lesao_muscular .
-
-
-###  http://example.com#lesoHasLesaoTornozelo
-:lesoHasLesaoTornozelo rdf:type owl:ObjectProperty ;
-                       rdfs:domain :Leso ;
-                       rdfs:range :lesao_tornozelo .
-
-
-###  http://example.com#prescreve_1
-:prescreve_1 rdf:type owl:ObjectProperty ;
-             rdfs:domain :Educador_fisico ;
-             rdfs:range :Preveno .
-
-
-###  http://example.com#prevenoHasPrevencaoJoelho
-:prevenoHasPrevencaoJoelho rdf:type owl:ObjectProperty ;
-                           rdfs:domain :Preveno ;
-                           rdfs:range :prevencao_joelho .
-
-
-###  http://example.com#prevenoHasPrevencaoMuscular
-:prevenoHasPrevencaoMuscular rdf:type owl:ObjectProperty ;
-                             rdfs:domain :Preveno ;
-                             rdfs:range :prevencao_muscular .
-
-
-###  http://example.com#prevenoHasPrevencaoTornozelo
-:prevenoHasPrevencaoTornozelo rdf:type owl:ObjectProperty ;
-                              rdfs:domain :Preveno ;
-                              rdfs:range :prevencao_tornozelo .
-
-
-###  http://example.com#registra
-:registra rdf:type owl:ObjectProperty ;
-          rdfs:domain :Historico_lesoes ;
-          rdfs:range :Leso .
-
-
-###  http://example.com#sofre
-:sofre rdf:type owl:ObjectProperty ;
-       rdfs:domain :Atleta ;
-       rdfs:range :Leso .
-
-
-###  http://example.com#tem
-:tem rdf:type owl:ObjectProperty ;
-     rdfs:domain :Historico_lesoes ;
-     rdfs:range :Atleta .
-
-
-###  http://example.com#trata
-:trata rdf:type owl:ObjectProperty ;
-       rdfs:domain :Educador_fisico ;
-       rdfs:range :Atleta .
-
-
-###  http://example.com#tratamentoHasTratamentoJoelho
-:tratamentoHasTratamentoJoelho rdf:type owl:ObjectProperty ;
-                               rdfs:domain :Tratamento ;
-                               rdfs:range :tratamento_joelho .
-
-
-###  http://example.com#tratamentoHasTratamentoMuscular
-:tratamentoHasTratamentoMuscular rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :Tratamento ;
-                                 rdfs:range :tratamento_muscular .
-
-
-###  http://example.com#tratamentoHasTratamentoTornozelo
-:tratamentoHasTratamentoTornozelo rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :Tratamento ;
-                                  rdfs:range :tratamento_tornozelo .
-
-
-###  http://purl.org/nemo/gufo#inheresIn
-gufo:inheresIn rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/nemo/gufo#mediates
-gufo:mediates rdf:type owl:ObjectProperty .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://example.com#hasPeso
-:hasPeso rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Atleta ;
-         rdfs:range xsd:decimal .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  http://example.com#Altura
-:Altura rdf:type owl:Class ;
-        owl:equivalentClass [ owl:intersectionOf ( gufo:Quality
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty gufo:inheresIn ;
-                                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                     owl:onClass :Caracteristicas_fisicas
-                                                   ]
-                                                 ) ;
-                              rdf:type owl:Class
-                            ] .
-
-
-###  http://example.com#Atleta
-:Atleta rdf:type owl:Class ;
-        rdfs:subClassOf gufo:FunctionalComplex ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :sofre ;
-                          owl:someValuesFrom :Leso
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :tem ;
-                          owl:someValuesFrom :Historico_lesoes
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty gufo:inheresIn ;
-                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Caracteristicas_fisicas
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty gufo:mediates ;
-                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Exercicio
-                        ] .
-
-
-###  http://example.com#Caracteristicas_fisicas
-:Caracteristicas_fisicas rdf:type owl:Class ;
-                         rdfs:subClassOf gufo:Quality ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                          ] ;
-                                           owl:someValuesFrom :Atleta
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty gufo:inheresIn ;
-                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Leso
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                          ] ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Altura
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                          ] ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Idade
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                          ] ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Peso
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                          ] ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass :Velocidade
-                                         ] .
-
-
-###  http://example.com#Educador_fisico
-:Educador_fisico rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :prescreve_1 ;
-                                   owl:someValuesFrom :Preveno
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :trata ;
-                                   owl:someValuesFrom :Atleta
-                                 ] .
-
-
-###  http://example.com#Exercicio
-:Exercicio rdf:type owl:Class ;
-           rdfs:subClassOf gufo:Relator ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty [ owl:inverseOf gufo:mediates
-                                            ] ;
-                             owl:someValuesFrom :Atleta
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty gufo:mediates ;
-                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass :Preveno
-                           ] .
-
-
-###  http://example.com#Historico_lesoes
-:Historico_lesoes rdf:type owl:Class ;
-                  rdfs:subClassOf gufo:Relator ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :registra ;
-                                    owl:someValuesFrom :Leso
-                                  ] .
-
-
-###  http://example.com#Idade
-:Idade rdf:type owl:Class ;
-       owl:equivalentClass [ owl:intersectionOf ( gufo:Quality
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty gufo:inheresIn ;
-                                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                    owl:onClass :Caracteristicas_fisicas
-                                                  ]
-                                                ) ;
-                             rdf:type owl:Class
-                           ] .
-
-
-###  http://example.com#Leso
-:Leso rdf:type owl:Class ;
-      rdfs:subClassOf gufo:Event ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty [ owl:inverseOf :registra
-                                       ] ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Historico_lesoes
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty [ owl:inverseOf :sofre
-                                       ] ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Atleta
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                       ] ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Caracteristicas_fisicas
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty [ owl:inverseOf gufo:mediates
-                                       ] ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Tratamento
-                      ] .
-
-
-###  http://example.com#Mdico
-:Mdico rdf:type owl:Class ;
-       rdfs:subClassOf gufo:FunctionalComplex ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :avalia ;
-                         owl:someValuesFrom :Atleta
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :prescreve_1 ;
-                         owl:someValuesFrom :Tratamento
-                       ] .
-
-
-###  http://example.com#Peso
-:Peso rdf:type owl:Class ;
-      owl:equivalentClass [ owl:intersectionOf ( gufo:Quality
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty gufo:inheresIn ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass :Caracteristicas_fisicas
-                                                 ]
-                                               ) ;
-                            rdf:type owl:Class
-                          ] .
-
-
-###  http://example.com#Preveno
-:Preveno rdf:type owl:Class ;
-         rdfs:subClassOf gufo:FunctionalComplex ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty gufo:mediates ;
-                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Atleta
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty gufo:mediates ;
-                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Historico_lesoes
-                         ] .
-
-
-###  http://example.com#Tratamento
-:Tratamento rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Relator ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty gufo:mediates ;
-                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Atleta
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty gufo:mediates ;
-                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Mdico
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty gufo:mediates ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Leso
-                            ] .
-
-
-###  http://example.com#Velocidade
-:Velocidade rdf:type owl:Class ;
-            owl:equivalentClass [ owl:intersectionOf ( gufo:Quality
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty gufo:inheresIn ;
-                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass :Caracteristicas_fisicas
-                                                       ]
-                                                     ) ;
-                                  rdf:type owl:Class
-                                ] .
-
-
-###  http://example.com#lesao_joelho
-:lesao_joelho rdf:type owl:Class ;
-              rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#lesao_muscular
-:lesao_muscular rdf:type owl:Class ;
-                rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#lesao_tornozelo
-:lesao_tornozelo rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#prevencao_joelho
-:prevencao_joelho rdf:type owl:Class ;
-                  rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#prevencao_muscular
-:prevencao_muscular rdf:type owl:Class ;
-                    rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#prevencao_tornozelo
-:prevencao_tornozelo rdf:type owl:Class ;
-                     rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#tratamento_joelho
-:tratamento_joelho rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#tratamento_muscular
-:tratamento_muscular rdf:type owl:Class ;
-                     rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://example.com#tratamento_tornozelo
-:tratamento_tornozelo rdf:type owl:Class ;
-                      rdfs:subClassOf gufo:FunctionalComplex .
-
-
-###  http://purl.org/nemo/gufo#Category
-gufo:Category rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#ComparativeRelationshipType
-gufo:ComparativeRelationshipType rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#Event
-gufo:Event rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#EventType
-gufo:EventType rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#FunctionalComplex
-gufo:FunctionalComplex rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#Kind
-gufo:Kind rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#MaterialRelationshipType
-gufo:MaterialRelationshipType rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#Quality
-gufo:Quality rdf:type owl:Class .
-
-
-###  http://purl.org/nemo/gufo#Relator
-gufo:Relator rdf:type owl:Class .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://example.com#Altura
-:Altura rdf:type owl:NamedIndividual ,
-                 gufo:Kind .
-
-
-###  http://example.com#Atleta
-:Atleta rdf:type owl:NamedIndividual ,
-                 gufo:Kind .
-
-
-###  http://example.com#Atleta1
-:Atleta1 rdf:type owl:NamedIndividual ,
-                  :Atleta ;
-         :hasPeso 80 .
-
-
-###  http://example.com#Caracteristicas_fisicas
-:Caracteristicas_fisicas rdf:type owl:NamedIndividual ,
-                                  gufo:Kind .
-
-
-###  http://example.com#Educador_fisico
-:Educador_fisico rdf:type owl:NamedIndividual ,
-                          gufo:Kind .
-
-
-###  http://example.com#Exercicio
-:Exercicio rdf:type owl:NamedIndividual ,
-                    gufo:Kind .
-
-
-###  http://example.com#Historico_lesoes
-:Historico_lesoes rdf:type owl:NamedIndividual ,
-                           gufo:Kind .
-
-
-###  http://example.com#Idade
-:Idade rdf:type owl:NamedIndividual ,
-                gufo:Kind .
-
-
-###  http://example.com#Leso
-:Leso rdf:type owl:NamedIndividual ,
-               gufo:EventType .
-
-
-###  http://example.com#Mdico
-:Mdico rdf:type owl:NamedIndividual ,
-                gufo:Kind .
-
-
-###  http://example.com#Peso
-:Peso rdf:type owl:NamedIndividual ,
-               gufo:Kind .
-
-
-###  http://example.com#Preveno
-:Preveno rdf:type owl:NamedIndividual ,
-                  gufo:Kind .
-
-
-###  http://example.com#Tratamento
-:Tratamento rdf:type owl:NamedIndividual ,
-                     gufo:Kind .
-
-
-###  http://example.com#Velocidade
-:Velocidade rdf:type owl:NamedIndividual ,
-                     gufo:Kind .
-
-
-###  http://example.com#avalia
-:avalia rdf:type owl:NamedIndividual ,
-                 gufo:MaterialRelationshipType .
-
-
-###  http://example.com#lesao_joelho
-:lesao_joelho rdf:type owl:NamedIndividual ,
-                       gufo:Category .
-
-
-###  http://example.com#lesao_muscular
-:lesao_muscular rdf:type owl:NamedIndividual ,
-                         gufo:Category .
-
-
-###  http://example.com#lesao_tornozelo
-:lesao_tornozelo rdf:type owl:NamedIndividual ,
-                          gufo:Category .
-
-
-###  http://example.com#lesoHasLesaoJoelho
-:lesoHasLesaoJoelho rdf:type owl:NamedIndividual ,
-                             gufo:MaterialRelationshipType .
-
-
-###  http://example.com#lesoHasLesaoMuscular
-:lesoHasLesaoMuscular rdf:type owl:NamedIndividual ,
-                               gufo:ComparativeRelationshipType .
-
-
-###  http://example.com#lesoHasLesaoTornozelo
-:lesoHasLesaoTornozelo rdf:type owl:NamedIndividual ,
-                                gufo:MaterialRelationshipType .
-
-
-###  http://example.com#prescreve_1
-:prescreve_1 rdf:type owl:NamedIndividual ,
-                      gufo:MaterialRelationshipType .
-
-
-###  http://example.com#prevencao_joelho
-:prevencao_joelho rdf:type owl:NamedIndividual ,
-                           gufo:Category .
-
-
-###  http://example.com#prevencao_muscular
-:prevencao_muscular rdf:type owl:NamedIndividual ,
-                             gufo:Category .
-
-
-###  http://example.com#prevencao_tornozelo
-:prevencao_tornozelo rdf:type owl:NamedIndividual ,
-                              gufo:Category .
-
-
-###  http://example.com#prevenoHasPrevencaoJoelho
-:prevenoHasPrevencaoJoelho rdf:type owl:NamedIndividual ,
-                                    gufo:MaterialRelationshipType .
-
-
-###  http://example.com#prevenoHasPrevencaoMuscular
-:prevenoHasPrevencaoMuscular rdf:type owl:NamedIndividual ,
-                                      gufo:MaterialRelationshipType .
-
-
-###  http://example.com#prevenoHasPrevencaoTornozelo
-:prevenoHasPrevencaoTornozelo rdf:type owl:NamedIndividual ,
-                                       gufo:MaterialRelationshipType .
-
-
-###  http://example.com#registra
-:registra rdf:type owl:NamedIndividual ,
-                   gufo:ComparativeRelationshipType .
-
-
-###  http://example.com#sofre
-:sofre rdf:type owl:NamedIndividual ,
-                gufo:MaterialRelationshipType .
-
-
-###  http://example.com#tem
-:tem rdf:type owl:NamedIndividual ,
-              gufo:MaterialRelationshipType .
-
-
-###  http://example.com#trata
-:trata rdf:type owl:NamedIndividual ,
-                gufo:MaterialRelationshipType .
-
-
-###  http://example.com#tratamentoHasTratamentoJoelho
-:tratamentoHasTratamentoJoelho rdf:type owl:NamedIndividual ,
-                                        gufo:MaterialRelationshipType .
-
-
-###  http://example.com#tratamentoHasTratamentoMuscular
-:tratamentoHasTratamentoMuscular rdf:type owl:NamedIndividual ,
-                                          gufo:MaterialRelationshipType .
-
-
-###  http://example.com#tratamentoHasTratamentoTornozelo
-:tratamentoHasTratamentoTornozelo rdf:type owl:NamedIndividual ,
-                                           gufo:MaterialRelationshipType .
-
-
-###  http://example.com#tratamento_joelho
-:tratamento_joelho rdf:type owl:NamedIndividual ,
-                            gufo:Category .
-
-
-###  http://example.com#tratamento_muscular
-:tratamento_muscular rdf:type owl:NamedIndividual ,
-                              gufo:Category .
-
-
-###  http://example.com#tratamento_tornozelo
-:tratamento_tornozelo rdf:type owl:NamedIndividual ,
-                               gufo:Category .
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-:Altura rdfs:label "Altura"@en .
-
-
-:Atleta rdfs:label "Atleta"@en .
-
-
-:Caracteristicas_fisicas rdfs:label "Caracteristicas_fisicas"@en .
-
-
-:Educador_fisico rdfs:label "Educador_fisico"@en .
-
-
-:Exercicio rdfs:label "Exercicio"@en .
-
-
-:Historico_lesoes rdfs:label "Historico_lesoes"@en .
-
-
-:Idade rdfs:label "Idade"@en .
-
-
-:Leso rdfs:label "Lesão"@en .
-
-
-:Mdico rdfs:label "Médico"@en .
-
-
-:Peso rdfs:label "Peso"@en .
-
-
-:Preveno rdfs:label "Prevenção"@en .
-
-
-:Tratamento rdfs:label "Tratamento"@en .
-
-
-:Velocidade rdfs:label "Velocidade"@en .
-
-
-:avalia rdfs:label "avalia"@en .
-
-
-:lesao_joelho rdfs:label "lesao_joelho"@en .
-
-
-:lesao_muscular rdfs:label "lesao_muscular"@en .
-
-
-:lesao_tornozelo rdfs:label "lesao_tornozelo"@en .
-
-
-:prescreve_1 rdfs:label "prescreve"@en .
-
-
-:prevencao_joelho rdfs:label "prevencao_joelho"@en .
-
-
-:prevencao_muscular rdfs:label "prevencao_muscular"@en .
-
-
-:prevencao_tornozelo rdfs:label "prevencao_tornozelo"@en .
-
-
-:registra rdfs:label "registra"@en .
-
-
-:sofre rdfs:label "sofre"@en .
-
-
-:tem rdfs:label "tem"@en .
-
-
-:trata rdfs:label "trata"@en .
-
-
-:tratamento_joelho rdfs:label "tratamento_joelho"@en .
-
-
-:tratamento_muscular rdfs:label "tratamento_muscular"@en .
-
-
-:tratamento_tornozelo rdfs:label "tratamento_tornozelo"@en .
-
-
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+@prefix : <http://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Leso rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Les�o"@en.
+:Atleta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Atleta"@en.
+:Preveno rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Preven��o"@en.
+:Historico_lesoes rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Historico_lesoes"@en.
+:Mdico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "M�dico"@en.
+:Educador_fisico rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Educador_fisico"@en.
+:Tratamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Tratamento"@en.
+:Caracteristicas_fisicas rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Caracteristicas_fisicas"@en.
+:lesao_joelho rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "lesao_joelho"@en.
+:lesao_tornozelo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "lesao_tornozelo"@en.
+:lesao_muscular rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "lesao_muscular"@en.
+:tratamento_joelho rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "tratamento_joelho"@en.
+:tratamento_tornozelo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "tratamento_tornozelo"@en.
+:tratamento_muscular rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "tratamento_muscular"@en.
+:prevencao_joelho rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "prevencao_joelho"@en.
+:prevencao_muscular rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "prevencao_muscular"@en.
+:prevencao_tornozelo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "prevencao_tornozelo"@en.
+:Exercicio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Exercicio"@en.
+:sofre rdf:type owl:ObjectProperty;
+    rdfs:domain :Atleta;
+    rdfs:range :Leso;
+    rdfs:label "sofre"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:trata rdf:type owl:ObjectProperty;
+    rdfs:domain :Atleta;
+    rdfs:range :Educador_fisico;
+    rdfs:label "trata"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:prescreve_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :Educador_fisico;
+    rdfs:range :Preveno;
+    rdfs:label "prescreve"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:avalia rdf:type owl:ObjectProperty;
+    rdfs:domain :Mdico;
+    rdfs:range :Atleta;
+    rdfs:label "avalia"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:tratamentoHasTratamentoTornozelo rdf:type owl:ObjectProperty;
+    rdfs:domain :Tratamento;
+    rdfs:range :tratamento_tornozelo;
+    rdf:type gufo:MaterialRelationshipType.
+:tratamentoHasTratamentoJoelho rdf:type owl:ObjectProperty;
+    rdfs:domain :Tratamento;
+    rdfs:range :tratamento_joelho;
+    rdf:type gufo:MaterialRelationshipType.
+:tratamentoHasTratamentoMuscular rdf:type owl:ObjectProperty;
+    rdfs:domain :Tratamento;
+    rdfs:range :tratamento_muscular;
+    rdf:type gufo:MaterialRelationshipType.
+:prevenoHasPrevencaoJoelho rdf:type owl:ObjectProperty;
+    rdfs:domain :Preveno;
+    rdfs:range :prevencao_joelho;
+    rdf:type gufo:MaterialRelationshipType.
+:prevenoHasPrevencaoTornozelo rdf:type owl:ObjectProperty;
+    rdfs:domain :Preveno;
+    rdfs:range :prevencao_tornozelo;
+    rdf:type gufo:MaterialRelationshipType.
+:prevenoHasPrevencaoMuscular rdf:type owl:ObjectProperty;
+    rdfs:domain :Preveno;
+    rdfs:range :prevencao_muscular;
+    rdf:type gufo:MaterialRelationshipType.
+:lesoHasLesaoJoelho rdf:type owl:ObjectProperty;
+    rdfs:domain :Leso;
+    rdfs:range :lesao_joelho;
+    rdf:type gufo:MaterialRelationshipType.
+:lesoHasLesaoTornozelo rdf:type owl:ObjectProperty;
+    rdfs:domain :Leso;
+    rdfs:range :lesao_tornozelo;
+    rdf:type gufo:MaterialRelationshipType.
+:lesoHasLesaoMuscular rdf:type owl:ObjectProperty;
+    rdfs:domain :Leso;
+    rdfs:range :lesao_muscular;
+    rdf:type gufo:MaterialRelationshipType.
+:Leso rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :sofre ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Atleta
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Historico_lesoes
+].
+:Tratamento rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Mdico
+].
+:Caracteristicas_fisicas rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :Atleta
+].
+:Atleta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Caracteristicas_fisicas
+].
+:Leso rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Tratamento
+].
+:Tratamento rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Leso
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Atleta
+].
+:Preveno rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Historico_lesoes
+].
+:Leso rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Caracteristicas_fisicas
+].
+:Caracteristicas_fisicas rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Leso
+].
+:Exercicio rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom :Atleta
+].
+:Atleta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Exercicio
+].
+:Exercicio rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Preveno
+].
+:Preveno rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Atleta
+].
+:Atleta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Historico_lesoes
+].
