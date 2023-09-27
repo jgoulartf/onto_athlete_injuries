@@ -1,0 +1,972 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://example.com"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://example.com">
+    <Prefix name="" IRI="http://example.com#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="gufo" IRI="http://purl.org/nemo/gufo#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Altura"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Atleta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Caracteristica_fisica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Educador_fisico"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Exercicio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Historico_lesoes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Idade"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Joelho"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Jogo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lesão"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Local"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Muscular"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Médico"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Peso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prevenção"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Profissional_de_saude"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Situação"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tornozelo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tratamento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Treinamento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Velocidade"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="gufo:Quality"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#atinge"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#atualiza"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#avalia"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#estimula"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#faz"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ocorre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#orienta"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#prepara"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#prescreve"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#previne"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#registra"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sofre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#trata"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#AlturaValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#IdadeValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#PesoValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#VelocidadeValue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Agachamento_Livre"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Alongamento_do_Tornozelo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Em_Jogo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Extensão_de_Perna"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Joelho"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Messi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Muscular"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prevenção_Muscular"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prevenção_de_Joelho"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prevenção_de_Tornozelo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prontuário_Messi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tornozelo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tratamento_Muscular"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tratamento_de_Joelho"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tratamento_de_Tornozelo"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Altura"/>
+        <Class abbreviatedIRI="gufo:Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Atleta"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Atleta"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#faz"/>
+            <Class IRI="#Exercicio"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Atleta"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+            <Class IRI="#Historico_lesoes"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Caracteristica_fisica"/>
+        <Class abbreviatedIRI="gufo:Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Educador_fisico"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Exercicio"/>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Exercicio"/>
+        <ObjectSomeValuesFrom>
+            <ObjectInverseOf>
+                <ObjectProperty IRI="#faz"/>
+            </ObjectInverseOf>
+            <Class IRI="#Atleta"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Historico_lesoes"/>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Idade"/>
+        <Class abbreviatedIRI="gufo:Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Joelho"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jogo"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lesão"/>
+        <Class abbreviatedIRI="gufo:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lesão"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty IRI="#sofre"/>
+            </ObjectInverseOf>
+            <Class IRI="#Atleta"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Local"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Muscular"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Médico"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Peso"/>
+        <Class abbreviatedIRI="gufo:Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prevenção"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prevenção"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+            <Class IRI="#Atleta"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prevenção"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+            <Class IRI="#Historico_lesoes"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Profissional_de_saude"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Situação"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Situação"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+            </ObjectInverseOf>
+            <Class IRI="#Tratamento"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tornozelo"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tratamento"/>
+        <Class abbreviatedIRI="gufo:Relator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tratamento"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+            <Class IRI="#Atleta"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Treinamento"/>
+        <Class abbreviatedIRI="gufo:FunctionalComplex"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Velocidade"/>
+        <Class abbreviatedIRI="gufo:Quality"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Atleta"/>
+        <Class IRI="#Profissional_de_saude"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Educador_fisico"/>
+        <Class IRI="#Médico"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Jogo"/>
+        <Class IRI="#Treinamento"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Exercicio"/>
+        <NamedIndividual IRI="#Agachamento_Livre"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Exercicio"/>
+        <NamedIndividual IRI="#Alongamento_do_Tornozelo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Lesão"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Jogo"/>
+        <NamedIndividual IRI="#Em_Jogo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Situação"/>
+        <NamedIndividual IRI="#Em_Jogo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Situação"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Treinamento"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Exercicio"/>
+        <NamedIndividual IRI="#Extensão_de_Perna"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Educador_fisico"/>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Atleta"/>
+        <NamedIndividual IRI="#Messi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Caracteristica_fisica"/>
+        <NamedIndividual IRI="#Messi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Muscular"/>
+        <NamedIndividual IRI="#Muscular"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Médico"/>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prevenção"/>
+        <NamedIndividual IRI="#Prevenção_Muscular"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prevenção"/>
+        <NamedIndividual IRI="#Prevenção_de_Joelho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prevenção"/>
+        <NamedIndividual IRI="#Prevenção_de_Tornozelo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Historico_lesoes"/>
+        <NamedIndividual IRI="#Prontuário_Messi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Lesão"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Tornozelo"/>
+        <NamedIndividual IRI="#Tornozelo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Lesão"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Em_Jogo"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Joelho"/>
+        <NamedIndividual IRI="#Muscular"/>
+        <NamedIndividual IRI="#Tornozelo"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Prevenção_Muscular"/>
+        <NamedIndividual IRI="#Prevenção_de_Joelho"/>
+        <NamedIndividual IRI="#Prevenção_de_Tornozelo"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Tratamento_Muscular"/>
+        <NamedIndividual IRI="#Tratamento_de_Joelho"/>
+        <NamedIndividual IRI="#Tratamento_de_Tornozelo"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#estimula"/>
+        <NamedIndividual IRI="#Agachamento_Livre"/>
+        <NamedIndividual IRI="#Prevenção_de_Joelho"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#estimula"/>
+        <NamedIndividual IRI="#Alongamento_do_Tornozelo"/>
+        <NamedIndividual IRI="#Prevenção_de_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#atinge"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+        <NamedIndividual IRI="#Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ocorre"/>
+        <NamedIndividual IRI="#Em_Jogo"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ocorre"/>
+        <NamedIndividual IRI="#Em_Jogo"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ocorre"/>
+        <NamedIndividual IRI="#Em_Jogo"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ocorre"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ocorre"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ocorre"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#estimula"/>
+        <NamedIndividual IRI="#Extensão_de_Perna"/>
+        <NamedIndividual IRI="#Prevenção_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#atualiza"/>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+        <NamedIndividual IRI="#Prontuário_Messi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#orienta"/>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+        <NamedIndividual IRI="#Prevenção_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#orienta"/>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+        <NamedIndividual IRI="#Prevenção_de_Joelho"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#orienta"/>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+        <NamedIndividual IRI="#Prevenção_de_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#prepara"/>
+        <NamedIndividual IRI="#Marcos_Abreu"/>
+        <NamedIndividual IRI="#Messi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#faz"/>
+        <NamedIndividual IRI="#Messi"/>
+        <NamedIndividual IRI="#Agachamento_Livre"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#faz"/>
+        <NamedIndividual IRI="#Messi"/>
+        <NamedIndividual IRI="#Alongamento_do_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#faz"/>
+        <NamedIndividual IRI="#Messi"/>
+        <NamedIndividual IRI="#Extensão_de_Perna"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sofre"/>
+        <NamedIndividual IRI="#Messi"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sofre"/>
+        <NamedIndividual IRI="#Messi"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sofre"/>
+        <NamedIndividual IRI="#Messi"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#atualiza"/>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+        <NamedIndividual IRI="#Prontuário_Messi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#avalia"/>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+        <NamedIndividual IRI="#Messi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#prescreve"/>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+        <NamedIndividual IRI="#Tratamento_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#prescreve"/>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+        <NamedIndividual IRI="#Tratamento_de_Joelho"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#prescreve"/>
+        <NamedIndividual IRI="#Paulo_Gomes"/>
+        <NamedIndividual IRI="#Tratamento_de_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#previne"/>
+        <NamedIndividual IRI="#Prevenção_Muscular"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#previne"/>
+        <NamedIndividual IRI="#Prevenção_de_Joelho"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#previne"/>
+        <NamedIndividual IRI="#Prevenção_de_Tornozelo"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registra"/>
+        <NamedIndividual IRI="#Prontuário_Messi"/>
+        <NamedIndividual IRI="#Em_Jogo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registra"/>
+        <NamedIndividual IRI="#Prontuário_Messi"/>
+        <NamedIndividual IRI="#Em_Treinamento"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#atinge"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+        <NamedIndividual IRI="#Joelho"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#atinge"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+        <NamedIndividual IRI="#Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#trata"/>
+        <NamedIndividual IRI="#Tratamento_Muscular"/>
+        <NamedIndividual IRI="#Distensão_Muscular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#trata"/>
+        <NamedIndividual IRI="#Tratamento_de_Joelho"/>
+        <NamedIndividual IRI="#Rompimento_do_LCA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#trata"/>
+        <NamedIndividual IRI="#Tratamento_de_Tornozelo"/>
+        <NamedIndividual IRI="#Torção_do_Tornozelo"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#AlturaValue"/>
+        <NamedIndividual IRI="#Messi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">170</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#IdadeValue"/>
+        <NamedIndividual IRI="#Messi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">36</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#PesoValue"/>
+        <NamedIndividual IRI="#Messi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">72</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#VelocidadeValue"/>
+        <NamedIndividual IRI="#Messi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">8</Literal>
+    </DataPropertyAssertion>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#atinge"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#faz"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#prepara"/>
+    </FunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#ocorre"/>
+    </SymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#atinge"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#atualiza"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#avalia"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#estimula"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#faz"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#orienta"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#prepara"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#prescreve"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#previne"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#registra"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#sofre"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#trata"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+    </AsymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#atinge"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#atualiza"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#avalia"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#estimula"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#faz"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#orienta"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#prepara"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#prescreve"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#previne"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#registra"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#sofre"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#trata"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#atinge"/>
+        <Class IRI="#Lesão"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#atualiza"/>
+        <Class IRI="#Profissional_de_saude"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#avalia"/>
+        <Class IRI="#Médico"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#estimula"/>
+        <Class IRI="#Exercicio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#faz"/>
+        <Class IRI="#Atleta"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ocorre"/>
+        <Class IRI="#Situação"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#orienta"/>
+        <Class IRI="#Educador_fisico"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#prepara"/>
+        <Class IRI="#Educador_fisico"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#prescreve"/>
+        <Class IRI="#Médico"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#previne"/>
+        <Class IRI="#Prevenção"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#registra"/>
+        <Class IRI="#Historico_lesoes"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sofre"/>
+        <Class IRI="#Atleta"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#trata"/>
+        <Class IRI="#Tratamento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+        <Class IRI="#Historico_lesoes"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#atinge"/>
+        <Class IRI="#Joelho"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#atinge"/>
+        <Class IRI="#Local"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#atinge"/>
+        <Class IRI="#Muscular"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#atinge"/>
+        <Class IRI="#Tornozelo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#atualiza"/>
+        <Class IRI="#Historico_lesoes"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#avalia"/>
+        <Class IRI="#Atleta"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#estimula"/>
+        <Class IRI="#Prevenção"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#faz"/>
+        <Class IRI="#Exercicio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ocorre"/>
+        <Class IRI="#Lesão"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#orienta"/>
+        <Class IRI="#Prevenção"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#prepara"/>
+        <Class IRI="#Atleta"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#prescreve"/>
+        <Class IRI="#Tratamento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#previne"/>
+        <Class IRI="#Lesão"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#registra"/>
+        <Class IRI="#Situação"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sofre"/>
+        <Class IRI="#Lesão"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#trata"/>
+        <Class IRI="#Lesão"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+        <Class IRI="#Atleta"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="gufo:mediates"/>
+        <Class IRI="#Prevenção"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#AlturaValue"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#IdadeValue"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#PesoValue"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#VelocidadeValue"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#AlturaValue"/>
+        <Class IRI="#Altura"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#IdadeValue"/>
+        <Class IRI="#Idade"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#PesoValue"/>
+        <Class IRI="#Peso"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#VelocidadeValue"/>
+        <Class IRI="#Velocidade"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#AlturaValue"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#IdadeValue"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#PesoValue"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#VelocidadeValue"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#atualiza</IRI>
+        <Literal xml:lang="en">atualiza</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#avalia</IRI>
+        <Literal xml:lang="en">avalia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#faz</IRI>
+        <Literal xml:lang="en">faz</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#orienta</IRI>
+        <Literal xml:lang="en">orienta</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#prescreve</IRI>
+        <Literal xml:lang="en">prescreve</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#registra</IRI>
+        <Literal xml:lang="en">registra</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

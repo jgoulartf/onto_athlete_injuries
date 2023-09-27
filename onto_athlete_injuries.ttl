@@ -13,41 +13,65 @@
 #    Object Properties
 #################################################################
 
+###  http://example.com#atinge
+:atinge rdf:type owl:ObjectProperty ,
+                 owl:FunctionalProperty ,
+                 owl:AsymmetricProperty ,
+                 owl:IrreflexiveProperty ;
+        rdfs:domain :Lesão ;
+        rdfs:range :Joelho ,
+                   :Local ,
+                   :Muscular ,
+                   :Tornozelo .
+
+
 ###  http://example.com#atualiza
-:atualiza rdf:type owl:ObjectProperty ;
+:atualiza rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ,
+                   owl:IrreflexiveProperty ;
           rdfs:domain :Profissional_de_saude ;
           rdfs:range :Historico_lesoes ;
           rdfs:label "atualiza"@en .
 
 
 ###  http://example.com#avalia
-:avalia rdf:type owl:ObjectProperty ;
+:avalia rdf:type owl:ObjectProperty ,
+                 owl:AsymmetricProperty ,
+                 owl:IrreflexiveProperty ;
         rdfs:domain :Médico ;
         rdfs:range :Atleta ;
         rdfs:label "avalia"@en .
 
 
+###  http://example.com#estimula
+:estimula rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ,
+                   owl:IrreflexiveProperty ;
+          rdfs:domain :Exercicio ;
+          rdfs:range :Prevenção .
+
+
 ###  http://example.com#faz
-:faz rdf:type owl:ObjectProperty ;
+:faz rdf:type owl:ObjectProperty ,
+              owl:FunctionalProperty ,
+              owl:AsymmetricProperty ,
+              owl:IrreflexiveProperty ;
      rdfs:domain :Atleta ;
      rdfs:range :Exercicio ;
      rdfs:label "faz"@en .
 
 
-###  http://example.com#lesoHasTipo
-:lesoHasTipo rdf:type owl:ObjectProperty ;
-             rdfs:domain :Lesão ;
-             rdfs:range :Tipo .
-
-
 ###  http://example.com#ocorre
-:ocorre rdf:type owl:ObjectProperty .
+:ocorre rdf:type owl:ObjectProperty ,
+                 owl:SymmetricProperty ;
+        rdfs:domain :Situação ;
+        rdfs:range :Lesão .
 
 
 ###  http://example.com#orienta
 :orienta rdf:type owl:ObjectProperty ,
-                  owl:FunctionalProperty ,
-                  owl:AsymmetricProperty ;
+                  owl:AsymmetricProperty ,
+                  owl:IrreflexiveProperty ;
          rdfs:domain :Educador_fisico ;
          rdfs:range :Prevenção ;
          rdfs:label "orienta"@en .
@@ -56,107 +80,60 @@
 ###  http://example.com#prepara
 :prepara rdf:type owl:ObjectProperty ,
                   owl:FunctionalProperty ,
-                  owl:AsymmetricProperty ;
+                  owl:AsymmetricProperty ,
+                  owl:IrreflexiveProperty ;
          rdfs:domain :Educador_fisico ;
          rdfs:range :Atleta .
 
 
 ###  http://example.com#prescreve
 :prescreve rdf:type owl:ObjectProperty ,
-                    owl:FunctionalProperty ,
-                    owl:AsymmetricProperty ;
+                    owl:AsymmetricProperty ,
+                    owl:IrreflexiveProperty ;
            rdfs:domain :Médico ;
            rdfs:range :Tratamento ;
            rdfs:label "prescreve"@en .
 
 
-###  http://example.com#prevenoHasSituao
-:prevenoHasSituao rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Prevenção ;
-                  rdfs:range :Situação .
-
-
 ###  http://example.com#previne
-:previne rdf:type owl:ObjectProperty ;
+:previne rdf:type owl:ObjectProperty ,
+                  owl:AsymmetricProperty ,
+                  owl:IrreflexiveProperty ;
          rdfs:domain :Prevenção ;
          rdfs:range :Lesão .
 
 
-###  http://example.com#profissionalDeSaudeHasEducadorFisico
-:profissionalDeSaudeHasEducadorFisico rdf:type owl:ObjectProperty ;
-                                      rdfs:domain :Profissional_de_saude ;
-                                      rdfs:range :Educador_fisico .
-
-
-###  http://example.com#profissionalDeSaudeHasMdico
-:profissionalDeSaudeHasMdico rdf:type owl:ObjectProperty ;
-                             rdfs:domain :Profissional_de_saude ;
-                             rdfs:range :Médico .
-
-
 ###  http://example.com#registra
-:registra rdf:type owl:ObjectProperty ;
+:registra rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ,
+                   owl:IrreflexiveProperty ;
           rdfs:domain :Historico_lesoes ;
           rdfs:range :Situação ;
           rdfs:label "registra"@en .
 
 
-###  http://example.com#situaoHasJogo
-:situaoHasJogo rdf:type owl:ObjectProperty ;
-               rdfs:domain :Situação ;
-               rdfs:range :Jogo .
-
-
-###  http://example.com#situaoHasLeso
-:situaoHasLeso rdf:type owl:ObjectProperty ;
-               rdfs:domain :Situação ;
-               rdfs:range :Lesão .
-
-
-###  http://example.com#situaoHasTreinamento
-:situaoHasTreinamento rdf:type owl:ObjectProperty ;
-                      rdfs:domain :Situação ;
-                      rdfs:range :Treinamento .
-
-
 ###  http://example.com#sofre
 :sofre rdf:type owl:ObjectProperty ,
-                owl:FunctionalProperty ,
-                owl:AsymmetricProperty ;
+                owl:AsymmetricProperty ,
+                owl:IrreflexiveProperty ;
        rdfs:domain :Atleta ;
        rdfs:range :Lesão .
 
 
-###  http://example.com#tipoHasJoelho
-:tipoHasJoelho rdf:type owl:ObjectProperty ;
-               rdfs:domain :Tipo ;
-               rdfs:range :Joelho .
-
-
-###  http://example.com#tipoHasMuscular
-:tipoHasMuscular rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Tipo ;
-                 rdfs:range :Muscular .
-
-
-###  http://example.com#tipoHasTornozelo
-:tipoHasTornozelo rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Tipo ;
-                  rdfs:range :Tornozelo .
-
-
 ###  http://example.com#trata
-:trata rdf:type owl:ObjectProperty ;
+:trata rdf:type owl:ObjectProperty ,
+                owl:AsymmetricProperty ,
+                owl:IrreflexiveProperty ;
        rdfs:domain :Tratamento ;
        rdfs:range :Lesão .
 
 
-###  http://purl.org/nemo/gufo#inheresIn
-gufo:inheresIn rdf:type owl:ObjectProperty .
-
-
 ###  http://purl.org/nemo/gufo#mediates
-gufo:mediates rdf:type owl:ObjectProperty .
+gufo:mediates rdf:type owl:ObjectProperty ,
+                       owl:AsymmetricProperty ;
+              rdfs:domain :Historico_lesoes ;
+              rdfs:range :Atleta ,
+                         :Prevenção .
 
 
 #################################################################
@@ -201,12 +178,7 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
 
 ###  http://example.com#Altura
 :Altura rdf:type owl:Class ;
-        rdfs:subClassOf gufo:Quality ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty gufo:inheresIn ;
-                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Caracteristica_fisica
-                        ] .
+        rdfs:subClassOf gufo:Quality .
 
 
 ###  http://example.com#Atleta
@@ -218,11 +190,6 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
                           owl:onClass :Exercicio
                         ] ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty gufo:inheresIn ;
-                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Caracteristica_fisica
-                        ] ,
-                        [ rdf:type owl:Restriction ;
                           owl:onProperty gufo:mediates ;
                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                           owl:onClass :Historico_lesoes
@@ -232,36 +199,7 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
 
 ###  http://example.com#Caracteristica_fisica
 :Caracteristica_fisica rdf:type owl:Class ;
-                       rdfs:subClassOf gufo:Quality ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                        ] ;
-                                         owl:someValuesFrom :Atleta
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                        ] ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass :Altura
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                        ] ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass :Idade
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                        ] ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass :Peso
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty [ owl:inverseOf gufo:inheresIn
-                                                        ] ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass :Velocidade
-                                       ] .
+                       rdfs:subClassOf gufo:Quality .
 
 
 ###  http://example.com#Educador_fisico
@@ -287,18 +225,12 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
 
 ###  http://example.com#Idade
 :Idade rdf:type owl:Class ;
-       rdfs:subClassOf gufo:Quality ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty gufo:inheresIn ;
-                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :Caracteristica_fisica
-                       ] .
+       rdfs:subClassOf gufo:Quality .
 
 
 ###  http://example.com#Joelho
 :Joelho rdf:type owl:Class ;
-        rdfs:subClassOf gufo:FunctionalComplex ;
-        owl:disjointWith :Tornozelo .
+        rdfs:subClassOf gufo:FunctionalComplex .
 
 
 ###  http://example.com#Jogo
@@ -318,6 +250,11 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
                        ] .
 
 
+###  http://example.com#Local
+:Local rdf:type owl:Class ;
+       rdfs:subClassOf gufo:FunctionalComplex .
+
+
 ###  http://example.com#Muscular
 :Muscular rdf:type owl:Class ;
           rdfs:subClassOf gufo:FunctionalComplex .
@@ -330,12 +267,7 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
 
 ###  http://example.com#Peso
 :Peso rdf:type owl:Class ;
-      rdfs:subClassOf gufo:Quality ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty gufo:inheresIn ;
-                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Caracteristica_fisica
-                      ] .
+      rdfs:subClassOf gufo:Quality .
 
 
 ###  http://example.com#Prevenção
@@ -350,8 +282,7 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
                              owl:onProperty gufo:mediates ;
                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                              owl:onClass :Historico_lesoes
-                           ] ;
-           owl:disjointWith :Tratamento .
+                           ] .
 
 
 ###  http://example.com#Profissional_de_saude
@@ -368,11 +299,6 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                             owl:onClass :Tratamento
                           ] .
-
-
-###  http://example.com#Tipo
-:Tipo rdf:type owl:Class ;
-      rdfs:subClassOf gufo:FunctionalComplex .
 
 
 ###  http://example.com#Tornozelo
@@ -397,12 +323,7 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
 
 ###  http://example.com#Velocidade
 :Velocidade rdf:type owl:Class ;
-            rdfs:subClassOf gufo:Quality ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty gufo:inheresIn ;
-                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onClass :Caracteristica_fisica
-                            ] .
+            rdfs:subClassOf gufo:Quality .
 
 
 ###  http://purl.org/nemo/gufo#Event
@@ -425,16 +346,29 @@ gufo:Relator rdf:type owl:Class .
 #    Individuals
 #################################################################
 
+###  http://example.com#Agachamento_Livre
+:Agachamento_Livre rdf:type owl:NamedIndividual ,
+                            :Exercicio ;
+                   :estimula :Prevenção_de_Joelho .
+
+
+###  http://example.com#Alongamento_do_Tornozelo
+:Alongamento_do_Tornozelo rdf:type owl:NamedIndividual ,
+                                   :Exercicio ;
+                          :estimula :Prevenção_de_Tornozelo .
+
+
 ###  http://example.com#Distensão_Muscular
 :Distensão_Muscular rdf:type owl:NamedIndividual ,
-                             :Lesão ,
-                             :Muscular .
+                             :Lesão ;
+                    :atinge :Muscular .
 
 
 ###  http://example.com#Em_Jogo
 :Em_Jogo rdf:type owl:NamedIndividual ,
                   :Jogo ,
                   :Situação ;
+         owl:differentFrom :Em_Treinamento ;
          :ocorre :Distensão_Muscular ,
                  :Rompimento_do_LCA ,
                  :Torção_do_Tornozelo .
@@ -447,6 +381,16 @@ gufo:Relator rdf:type owl:Class .
                 :ocorre :Distensão_Muscular ,
                         :Rompimento_do_LCA ,
                         :Torção_do_Tornozelo .
+
+
+###  http://example.com#Extensão_de_Perna
+:Extensão_de_Perna rdf:type owl:NamedIndividual ,
+                            :Exercicio ;
+                   :estimula :Prevenção_Muscular .
+
+
+###  http://example.com#Joelho
+:Joelho rdf:type owl:NamedIndividual .
 
 
 ###  http://example.com#Marcos_Abreu
@@ -463,11 +407,21 @@ gufo:Relator rdf:type owl:Class .
 :Messi rdf:type owl:NamedIndividual ,
                 :Atleta ,
                 :Caracteristica_fisica ;
-       :sofre :Torção_do_Tornozelo ;
+       :faz :Agachamento_Livre ,
+            :Alongamento_do_Tornozelo ,
+            :Extensão_de_Perna ;
+       :sofre :Distensão_Muscular ,
+              :Rompimento_do_LCA ,
+              :Torção_do_Tornozelo ;
        :AlturaValue 170 ;
        :IdadeValue 36 ;
        :PesoValue 72 ;
        :VelocidadeValue 8 .
+
+
+###  http://example.com#Muscular
+:Muscular rdf:type owl:NamedIndividual ,
+                   :Muscular .
 
 
 ###  http://example.com#Paulo_Gomes
@@ -481,19 +435,21 @@ gufo:Relator rdf:type owl:Class .
 
 
 ###  http://example.com#Prevenção_Muscular
-:Prevenção_Muscular rdf:type owl:NamedIndividual .
+:Prevenção_Muscular rdf:type owl:NamedIndividual ,
+                             :Prevenção ;
+                    :previne :Distensão_Muscular .
 
 
 ###  http://example.com#Prevenção_de_Joelho
 :Prevenção_de_Joelho rdf:type owl:NamedIndividual ,
-                              :Joelho ,
-                              :Prevenção .
+                              :Prevenção ;
+                     :previne :Rompimento_do_LCA .
 
 
 ###  http://example.com#Prevenção_de_Tornozelo
 :Prevenção_de_Tornozelo rdf:type owl:NamedIndividual ,
-                                 :Muscular ,
-                                 :Prevenção .
+                                 :Prevenção ;
+                        :previne :Torção_do_Tornozelo .
 
 
 ###  http://example.com#Prontuário_Messi
@@ -505,26 +461,70 @@ gufo:Relator rdf:type owl:Class .
 
 ###  http://example.com#Rompimento_do_LCA
 :Rompimento_do_LCA rdf:type owl:NamedIndividual ,
-                            :Joelho ,
-                            :Lesão .
+                            :Lesão ;
+                   :atinge :Joelho .
+
+
+###  http://example.com#Tornozelo
+:Tornozelo rdf:type owl:NamedIndividual ,
+                    :Tornozelo .
 
 
 ###  http://example.com#Torção_do_Tornozelo
 :Torção_do_Tornozelo rdf:type owl:NamedIndividual ,
-                              :Lesão ,
-                              :Tornozelo .
+                              :Lesão ;
+                     :atinge :Tornozelo .
 
 
 ###  http://example.com#Tratamento_Muscular
-:Tratamento_Muscular rdf:type owl:NamedIndividual .
+:Tratamento_Muscular rdf:type owl:NamedIndividual ;
+                     :trata :Distensão_Muscular .
 
 
 ###  http://example.com#Tratamento_de_Joelho
-:Tratamento_de_Joelho rdf:type owl:NamedIndividual .
+:Tratamento_de_Joelho rdf:type owl:NamedIndividual ;
+                      :trata :Rompimento_do_LCA .
 
 
 ###  http://example.com#Tratamento_de_Tornozelo
-:Tratamento_de_Tornozelo rdf:type owl:NamedIndividual .
+:Tratamento_de_Tornozelo rdf:type owl:NamedIndividual ;
+                         :trata :Torção_do_Tornozelo .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Distensão_Muscular
+                        :Rompimento_do_LCA
+                        :Torção_do_Tornozelo
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Joelho
+                        :Muscular
+                        :Tornozelo
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Prevenção_Muscular
+                        :Prevenção_de_Joelho
+                        :Prevenção_de_Tornozelo
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Tratamento_Muscular
+                        :Tratamento_de_Joelho
+                        :Tratamento_de_Tornozelo
+                      )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
