@@ -488,6 +488,10 @@
         <NamedIndividual IRI="#Extensão_de_Perna"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Joelho"/>
+        <NamedIndividual IRI="#Joelho"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Educador_fisico"/>
         <NamedIndividual IRI="#Marcos_Abreu"/>
     </ClassAssertion>
@@ -942,19 +946,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#atinge"/>
-        <Class IRI="#Joelho"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#atinge"/>
         <Class IRI="#Local"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#atinge"/>
-        <Class IRI="#Muscular"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#atinge"/>
-        <Class IRI="#Tornozelo"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#atualiza"/>
