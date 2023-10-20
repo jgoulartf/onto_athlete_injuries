@@ -131,7 +131,13 @@
         <DataProperty IRI="#Idade"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#LesoesAnteriores"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#Peso"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#RiscoLesão"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#Velocidade"/>
@@ -211,10 +217,10 @@
                 <ObjectProperty IRI="#sofre"/>
                 <Class IRI="#Lesão"/>
             </ObjectSomeValuesFrom>
-            <ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="1">
                 <ObjectProperty IRI="#tem"/>
                 <Class IRI="#Caracteristica_fisica"/>
-            </ObjectSomeValuesFrom>
+            </ObjectExactCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -317,13 +323,6 @@
         </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Atleta"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
-            <Class IRI="#Historico_lesoes"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Caracteristica_fisica"/>
         <Class abbreviatedIRI="gufo:Quality"/>
     </SubClassOf>
@@ -378,35 +377,12 @@
         <Class abbreviatedIRI="gufo:Relator"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Prevenção"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
-            <Class IRI="#Atleta"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Prevenção"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
-            <Class IRI="#Historico_lesoes"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Profissional_de_saude"/>
         <Class abbreviatedIRI="gufo:FunctionalComplex"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Situação"/>
         <Class abbreviatedIRI="gufo:FunctionalComplex"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Situação"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectInverseOf>
-                <ObjectProperty abbreviatedIRI="gufo:mediates"/>
-            </ObjectInverseOf>
-            <Class IRI="#Tratamento"/>
-        </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tornozelo"/>
@@ -417,19 +393,20 @@
         <Class abbreviatedIRI="gufo:Relator"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tratamento"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty abbreviatedIRI="gufo:mediates"/>
-            <Class IRI="#Atleta"/>
-        </ObjectMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Treinamento"/>
         <Class IRI="#Situação"/>
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="#Atleta"/>
+        <Class IRI="#Local"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Atleta"/>
         <Class IRI="#Profissional_de_saude"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Atleta"/>
+        <Class IRI="#Situação"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Educador_fisico"/>
@@ -442,6 +419,22 @@
     <DisjointClasses>
         <Class IRI="#Exercicio"/>
         <Class IRI="#Lesão"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Exercicio"/>
+        <Class IRI="#Prevenção"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Exercicio"/>
+        <Class IRI="#Tratamento"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Historico_lesoes"/>
+        <Class IRI="#Prevenção"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Historico_lesoes"/>
+        <Class IRI="#Tratamento"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Jogo"/>
@@ -497,10 +490,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Atleta"/>
-        <NamedIndividual IRI="#Messi"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Caracteristica_fisica"/>
         <NamedIndividual IRI="#Messi"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -752,6 +741,11 @@
         <DataProperty IRI="#Idade"/>
         <NamedIndividual IRI="#Messi"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">36</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#LesoesAnteriores"/>
+        <NamedIndividual IRI="#Messi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#Peso"/>
@@ -1013,6 +1007,10 @@
         <Class IRI="#Prevenção"/>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
+        <DataProperty IRI="#LesoesAnteriores"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
@@ -1025,8 +1023,16 @@
         <Class IRI="#Caracteristica_fisica"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#LesoesAnteriores"/>
+        <Class IRI="#Historico_lesoes"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#Peso"/>
         <Class IRI="#Caracteristica_fisica"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#RiscoLesão"/>
+        <Class IRI="#Atleta"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#Velocidade"/>
@@ -1041,8 +1047,16 @@
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#LesoesAnteriores"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#Peso"/>
         <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#RiscoLesão"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#Velocidade"/>
